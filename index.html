@@ -72,8 +72,6 @@
     });
 
 
-    <!-- START DEFINE AND RUN FULL EXPERIMENT TIMELINE -->
-
     //handling of csv thanks to https://stackoverflow.com/a/34699365
     csv_request = d3.csv(practice_probability_file).then(function(practice_prob_data) {
     csv_request = d3.csv(probability_file).then(function(prob_data) {
@@ -295,7 +293,7 @@ var end_experiment = {
         stimulus: 'audio/instructions/treasure_feedback.wav',
         prompt: function () {
             "use strict";
-            return ['<p style=\"color:#FFFFFF\">You got ', function() {return real_reward;}() , ' pieces of treasure. <br> That means you earned a bonus of $5! <br> Press the space bar to move to the next page.'].join('');
+            return ['<p style=\"color:#FFFFFF\">You got ', function() {return real_reward;}() , ' pieces of treasure. <br> That means you earned a bonus of $', function() {return real_reward*0.1;}(),'! <br> Press the space bar to move to the next page.'].join('');
         },
     }
 
@@ -505,8 +503,6 @@ var end_experiment = {
     });
     });
     });
-
-    <!-- END DEFINE AND RUN FULL EXPERIMENT TIMELINE -->
 
     </script>
 
